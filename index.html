@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>scriptMicro</title>
+        
+        <script src="scripts/angularJS/1.4.8/angular.min.js"></script><!--http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js-->
+        <script src="scripts/greenSock/minified/TweenMax.min.js"></script>
+
+        <script>
+                var app = angular.module('scriptMicroApp', []);
+        </script>
+        <script src="scripts/scriptMicro/directives/barContainer.js"></script>
+        <script src="scripts/scriptMicro/directives/badGuy.js"></script>
+        <script src="scripts/scriptMicro/directives/healthMeter.js"></script>
+        <script src="scripts/scriptMicro/directives/shieldMeter.js"></script>
+        <script src="scripts/scriptMicro/directives/startGame.js"></script>
+        <script src="scripts/scriptMicro/directives/endGame.js"></script>
+
+        <script src="scripts/scriptMicro/directives/spaceShip.js"></script>
+        <script src="scripts/scriptMicro/utilities.js"></script>
+        <script src="scripts/scriptMicro/shapeBuilder.js"></script>
+        <link href="css/index.css" rel="stylesheet" />
+    </head>
+
+    <body scrolling="no" onload="init()" onready="ready()" onresize="resize()" ng-model="keys" ng-app="scriptMicroApp" ng-controller="scriptMicroControl" ng-keydown="!spaceShip.isAlive || keydown($event)" ng-keyup="!spaceShip.isAlive || keyup($event)">
+
+        <div id="game" ng-click="!spaceShip.isAlive || mouseClick($event)" ng-mousemove="!spaceShip.isAlive || mouseMonitor($event)" ng-init="begin()">
+
+            <div id="container">
+                
+
+                <!--
+                <p>The xspeed is <span ng-bind="spaceShip.xspeed"></span></p>
+                <p>The yspeed is <span ng-bind="spaceShip.yspeed"></span></p>
+                <p>The angle is <span ng-bind="spaceShip.angle"></span><span ng-bind="spaceShip.rotation"></span></p>
+                <p>The power is <span ng-bind="spaceShip.power"></span></p>
+                <p>The friction is <span ng-bind="spaceShip.friction"></span></p>
+                <p>The x is <span ng-bind="spaceShip.x"></span></p>
+                <p>The y is <span ng-bind="spaceShip.y"></span></p>
+                <p>The shield is <span ng-bind="spaceShip.shield"></span></p>
+                <p>The health is <span ng-bind="spaceShip.health"></span></p>
+                    -->
+                
+                <div class="spaceShipWeaponContainer" ng-repeat="weapon in weaponsfired" ng-style="{ 'backgroundColor':weapon.color, 'left':weapon.x+'px', 'top':weapon.y+'px'  }"/>
+                
+                </div>
+
+                <bad-guy datasource="badGuy" class="badGuy" ng-repeat="badGuy in badGuysList" ng-style="{'left':badGuy.x+'px', 'top':badGuy.y+'px', 'width':badGuy.width+'px', 'height':badGuy.height+'px'}"></bad-guy>
+
+                <div class="boom" ng-style="{'background': 'url('+boom.image+')', 'transform': 'rotate('+boom.rotation+'deg)', 'left':boom.x+'px', 'top':boom.y+'px', 'width':boom.width+'px', 'height':boom.height+'px'}" ng-repeat="boom in boomList"></div>
+
+              
+            </div>
+
+
+            <div id="gameHUD">
+                <div id="weaponSelectionContainer"></div>
+                <bar-container id="barContainer" datasource="spaceShip"></bar-container>
+            </div>
+
+            <space-ship id="spaceShip" style="visibility:hidden" datasource="spaceShip"></space-ship>
+        
+        </div>
+
+
+        <start-game action="startBTNHandler($event)"></start-game>
+
+        <end-game action="endBTNHandler($event)"></end-game>
+
+        <script src="scripts/scriptMicro/scriptMicro.js"></script>
+
+    </body>
+</html>
