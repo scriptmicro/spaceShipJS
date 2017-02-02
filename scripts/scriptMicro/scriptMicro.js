@@ -112,6 +112,8 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
 
     $scope.hasStarted = false;
 
+    $scope.score = 0;
+
     $scope.begin = function(){
         console.log("begin");
     }
@@ -147,6 +149,8 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
     $scope.startBTNHandler = function (event) {
         console.log("startBTNHandler");
 
+        $scope.score = 0;
+
         $scope.hasStarted = true;
         $scope.spaceShip.isAlive = true;
         TweenMax.to(gameHUD, 0.5, { alpha: 1 });// could chnage this to set
@@ -158,6 +162,7 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
     $scope.endBTNHandler = function (event) {
         console.log("endBTNHandler");
         console.log("endBTNHandler ::: " + $scope.badGuysList.length);
+
         if($scope.badGuysList.length > 0){
             for (var i = $scope.badGuysList.length -1; i >= 0;  i--) {
                 //$scope.badGuysList[i].health = 0;
@@ -183,6 +188,7 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
         
         TweenMax.to(gameHUD, 0.5, { alpha: 0 });
 
+        
 
         //well, this isnt very angularJSie
         var startBTN = document.getElementById("startBTN");
@@ -353,6 +359,10 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
 
         if($scope.badGuysList[whichGuy].health <= 0){
 
+            if($scope.hasStarted == true){
+                $scope.score += $scope.badGuysList[whichGuy].score;
+            }
+
             var x = $scope.badGuysList[whichGuy].x;
             var y = $scope.badGuysList[whichGuy].y;
 
@@ -360,7 +370,7 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
             var yspeed = $scope.badGuysList[whichGuy].yspeed;
 
             $scope.badGuysList.splice(whichGuy, 1);
-            //replace bag guy with boom1 and 2 or 3
+            //replace bad guy with boom1 and 2 or 3
             //$scope.boomList.push(buildBoom(x, y, xspeed, yspeed, 1));
 
             $scope.boomList.push(buildBoom(x + getRandomInt(2,-2), y + getRandomInt(2,-2), xspeed, yspeed, 1));

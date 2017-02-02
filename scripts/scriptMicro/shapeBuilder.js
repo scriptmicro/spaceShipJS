@@ -70,14 +70,17 @@ function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type = 1) {
         shape.image = "images/bolder-50.png";
         shape.width = 50;
         shape.height = 50;
+        shape.score = 50;
     }else if(type == 2){
         shape.image = "images/bolder-75.png";
         shape.width = 75;
         shape.height = 75;
+        shape.score = 75;
     }else if(type == 3){
         shape.image = "images/bolder-100.png";
         shape.width = 100;
         shape.height = 100;
+        shape.score = 100;
     }
 
     shape.xspeed = shape.power * newXSpeed;
