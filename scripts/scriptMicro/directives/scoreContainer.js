@@ -22,6 +22,17 @@ app.directive('scoreContainer', function () {
 
             }, true);
 
+
+
+            scope.$watch("hasStarted", function(newValue, oldValue) {
+                //console.log("scoreContainer - hasStarted ::: " + newValue);
+                //animate in or out, alpha in or out
+
+            }, true);
+
+
+
+
         }
     };
 });

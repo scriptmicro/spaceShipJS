@@ -149,8 +149,6 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
     $scope.startBTNHandler = function (event) {
         console.log("startBTNHandler");
 
-        $scope.score = 0;
-
         $scope.hasStarted = true;
         $scope.spaceShip.isAlive = true;
         TweenMax.to(gameHUD, 0.5, { alpha: 1 });// could chnage this to set
@@ -170,6 +168,7 @@ app.controller('scriptMicroControl', function ($scope, $interval) {
             }
         }
 
+        $scope.score = 0;
 
 /*
         $scope.badGuysList = [];
