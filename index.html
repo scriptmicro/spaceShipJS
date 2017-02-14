@@ -3,12 +3,15 @@
     <head>
         <title>scriptMicro</title>
         
-        <script src="scripts/angularJS/1.4.8/angular.min.js"></script><!--http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js-->
+        <script src="scripts/angularJS/1.4.8/angular.min.js"></script>
+        <!--http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js-->
         <script src="scripts/greenSock/minified/TweenMax.min.js"></script>
 
         <script>
                 var app = angular.module('scriptMicroApp', []);
         </script>
+
+        <!-- build:js-->
         <script src="scripts/scriptMicro/directives/barContainer.js"></script>
         <script src="scripts/scriptMicro/directives/badGuy.js"></script>
         <script src="scripts/scriptMicro/directives/healthMeter.js"></script>
@@ -16,11 +19,16 @@
         <script src="scripts/scriptMicro/directives/startGame.js"></script>
         <script src="scripts/scriptMicro/directives/endGame.js"></script>
         <script src="scripts/scriptMicro/directives/scoreContainer.js"></script>
-
         <script src="scripts/scriptMicro/directives/spaceShip.js"></script>
+
         <script src="scripts/scriptMicro/utilities.js"></script>
         <script src="scripts/scriptMicro/shapeBuilder.js"></script>
+        <!-- endbuild -->
+
+
+        <!-- build:css -->
         <link href="css/index.css" rel="stylesheet" />
+        <!-- endbuild -->
     </head>
 
     <body scrolling="no" onload="init()" onready="ready()" onresize="resize()" ng-model="keys" ng-app="scriptMicroApp" ng-controller="scriptMicroControl" ng-keydown="!spaceShip.isAlive || keydown($event)" ng-keyup="!spaceShip.isAlive || keyup($event)">
@@ -31,7 +39,6 @@
 
                 <score-container></score-container>
                 
-
                 <!--
                 <p>The xspeed is <span ng-bind="spaceShip.xspeed"></span></p>
                 <p>The yspeed is <span ng-bind="spaceShip.yspeed"></span></p>
@@ -74,7 +81,9 @@
 
         <end-game action="endBTNHandler($event)"></end-game>
 
+        <!-- build:script -->
         <script src="scripts/scriptMicro/scriptMicro.js"></script>
+        <!-- endbuild -->
 
     </body>
 </html>

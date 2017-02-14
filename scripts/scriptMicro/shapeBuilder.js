@@ -53,7 +53,7 @@ function buildShape(newX, newY, newXSpeed, newYSpeed) {
 
 
 
-function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type = 1) {
+function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type) {//type = 1
 
     var shape = [];
     //weapon.color = '#' + 0xFFFFFF; //+ (Math.random() * 0xFFFFFF << 0).toString(16);
@@ -137,7 +137,7 @@ function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type = 1) {
 
 
 
-function buildBoom(newX, newY, newXSpeed, newYSpeed, type = 1) {
+function buildBoom(newX, newY, newXSpeed, newYSpeed, type) {//type = 1
 
     var shape = [];
     //weapon.color = '#' + 0xFFFFFF; //+ (Math.random() * 0xFFFFFF << 0).toString(16);
