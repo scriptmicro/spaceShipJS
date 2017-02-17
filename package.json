@@ -1,0 +1,30 @@
+{
+  "name": "spaceshipjs",
+  "version": "1.0.0",
+  "description": "Cool spaceship game using angularJS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scriptmicro/spaceShipJS.git"
+  },
+  "author": "Clinton White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scriptmicro/spaceShipJS/issues"
+  },
+  "homepage": "https://github.com/scriptmicro/spaceShipJS#readme",
+  "devDependencies": {
+    "gulp-clean-css": "^3.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-image": "^2.7.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-uglify": "^2.0.1"
+  }
+}
