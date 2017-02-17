@@ -76,8 +76,3 @@ gulp.task('images', ['index'], function() {
 gulp.task('default', ['clean','compress', 'movejs', 'css', 'html', 'index', 'images'], function() {
 
 });
-
-
-//TODO -- find out about the html replace so i can ref the min build stuff.
-//https://www.npmjs.com/package/gulp-html-replace
-//this will need to be done after css before index where we still need comments <!-- build:js--> to replace
