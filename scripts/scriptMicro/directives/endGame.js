@@ -9,6 +9,8 @@ app.directive('endGame', function () {
 
 			console.log("endGame");
 			var endBTN = document.getElementById("endBTN");
+            var container = document.getElementById("container");
+
 			TweenMax.set(endBTN, { x: (container.clientWidth / 2) - (endBTN.clientWidth / 2), y: 0-endBTN.clientHeight});
     		//TweenMax.to(endBTN, 10, { x: (container.clientWidth / 2) - (endBTN.clientWidth / 2), y: (container.clientHeight / 2) - (endBTN.clientHeight / 2) });
 
