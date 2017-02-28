@@ -5,3 +5,5 @@ A couple of dependencies are needed to have fun:
 	greensock : http://www.greensock.com
 	angularjs : https://angularjs.org/
 	NOTICE *** take a look at index.html file to get an idea of where they belong
+
+https://github.com/a1studmuffin/SpaceshipGenerator/blob/master/README.md

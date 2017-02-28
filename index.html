@@ -31,7 +31,7 @@
         <!-- endbuild -->
     </head>
 
-    <body scrolling="no" onload="init()" onready="ready()" onresize="resize()" ng-model="keys" ng-app="scriptMicroApp" ng-controller="scriptMicroControl" ng-keydown="!spaceShip.isAlive || keydown($event)" ng-keyup="!spaceShip.isAlive || keyup($event)">
+    <body scrolling="no" onload="init()" onready="ready()" onresize="resize()" ng-model="keys" ng-app="scriptMicroApp" ng-controller="scriptMicroController" ng-keydown="!spaceShip.isAlive || keydown($event)" ng-keyup="!spaceShip.isAlive || keyup($event)">
 
         <div id="game" ng-click="!spaceShip.isAlive || mouseClick($event)" ng-mousemove="!spaceShip.isAlive || mouseMonitor($event)" ng-init="begin()">
 
@@ -82,7 +82,9 @@
         <end-game action="endBTNHandler($event)"></end-game>
 
         <!-- build:script -->
+        
         <script src="scripts/scriptMicro/scriptMicro.js"></script>
+        <script src="scripts/scriptMicro/controllers/scriptMicroController.js"></script>
         <!-- endbuild -->
 
     </body>

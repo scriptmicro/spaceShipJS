@@ -1,38 +1,39 @@
-app.directive('scoreContainer', function () {
-    return {
-        restrict: 'E',
-        templateUrl: "templates/scoreContainer.html",
-        link: function(scope, element, attrs){
+(function() {
 
-            scope.$watch("score", function(newValue, oldValue) {
+    var scoreContainer = function(){
+        return {
+            restrict: 'E',
+            templateUrl: "templates/scoreContainer.html",
+            link: function(scope, element, attrs){
 
-                var game = {score:oldValue};
-                var scoreDisplay = document.getElementById("score");
+                scope.$watch("score", function(newValue, oldValue) {
 
-                if(newValue > 0){
-                    TweenLite.to(game, 1, {score:"+="+(newValue-oldValue), roundProps:"score", onUpdate:updateHandler, ease:Linear.easeNone});
-                    //TweenLite.to(scoreDisplay, 1, {scale:1.5, ease:Linear.easeNone});
-                }else{
-                    scoreDisplay.innerHTML = newValue;
-                }
+                    var game = {score:oldValue};
+                    var scoreDisplay = document.getElementById("score");
 
-                function updateHandler() {
-                    scoreDisplay.innerHTML = game.score;
-                }
+                    if(newValue > 0){
+                        TweenLite.to(game, 1, {score:"+="+(newValue-oldValue), roundProps:"score", onUpdate:updateHandler, ease:Linear.easeNone});
+                        //TweenLite.to(scoreDisplay, 1, {scale:1.5, ease:Linear.easeNone});
+                    }else{
+                        scoreDisplay.innerHTML = newValue;
+                    }
 
-            }, true);
+                    function updateHandler() {
+                        scoreDisplay.innerHTML = game.score;
+                    }
 
+                }, true);
 
+                scope.$watch("hasStarted", function(newValue, oldValue) {
+                    //console.log("scoreContainer - hasStarted ::: " + newValue);
+                    //animate in or out, alpha in or out
 
-            scope.$watch("hasStarted", function(newValue, oldValue) {
-                //console.log("scoreContainer - hasStarted ::: " + newValue);
-                //animate in or out, alpha in or out
-
-            }, true);
-
-
-
-
+                }, true);
+            }
         }
     };
-});
+
+    angular
+    .module('scriptMicroApp')
+    .directive('scoreContainer', scoreContainer);
+}());
