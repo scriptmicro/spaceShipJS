@@ -20,11 +20,12 @@ gulp.task('compress', ['clean'], function(){
     return gulp.src(['./scripts/scriptMicro/scriptMicro.js', 
                     './scripts/scriptMicro/shapeBuilder.js', 
                     './scripts/scriptMicro/utilities.js',
-                    './scripts/scriptMicro/directives/*.js'])
+                    './scripts/scriptMicro/directives/*.js',
+                    './scripts/scriptMicro/controllers/*.js'])
         .pipe(concat('concat.js'))
         //.pipe(gulp.dest('./build/scripts/scriptMicro/'))
         .pipe(rename('scriptMicro.min.js'))
-        //.pipe(uglify())//I WISH I COULD GET THIS WORKING, CODING WITH DAN
+        .pipe(uglify())
         .pipe(gulp.dest('./build/scripts/scriptMicro/'));
 });
 
