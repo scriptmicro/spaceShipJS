@@ -4,3 +4,4 @@ images/spark2.png
 scripts/angularJS/*
 scripts/greenSock/*
 build/*
+node_modules/*
