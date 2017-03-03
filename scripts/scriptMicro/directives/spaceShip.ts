@@ -9,7 +9,7 @@
             templateUrl: "templates/spaceShip.html",
             link: function(scope, element, attrs) {
 
-                scope.$watch("datasource.shield", function(newValue, oldValue) {
+                scope.$watch("datasource.shield", function(newValue:number, oldValue:number) {
 
                     if (newValue < 100){
                         TweenMax.set(element, {backgroundColor:0x0000FF});

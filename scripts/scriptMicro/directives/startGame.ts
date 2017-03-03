@@ -10,11 +10,11 @@
             link: function(scope, element, attrs) {
 
                 console.log("startGame");
-                var startBTN = document.getElementById("startBTN");
-                var container = document.getElementById("container");
+                let startBTN = document.getElementById("startBTN");
+                let container = document.getElementById("container");
 
                 TweenMax.set(startBTN, { x: (container.clientWidth / 2) - (startBTN.clientWidth / 2), y: 0-startBTN.clientHeight});
-                var startButtonTween = new TweenMax.to(startBTN, 0.5, { x: (container.clientWidth / 2) - (startBTN.clientWidth / 2), y: (container.clientHeight / 2) - (startBTN.clientHeight / 2), ease:  Back.easeOut});
+                let startButtonTween = new TweenMax.to(startBTN, 0.5, { x: (container.clientWidth / 2) - (startBTN.clientWidth / 2), y: (container.clientHeight / 2) - (startBTN.clientHeight / 2), ease:  Back.easeOut});
 
                 element.bind('click', function () {
                     console.log("startGame click");
