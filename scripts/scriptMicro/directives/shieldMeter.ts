@@ -11,7 +11,7 @@
 
                 var shieldMeter = document.getElementById("shieldMeter");
 
-                scope.$watch("datasource.shield", function(newValue, oldValue) {
+                scope.$watch("datasource.shield", function(newValue:number, oldValue:number) {
                     console.log("shield ::: " + newValue);
                     TweenMax.to(shieldMeter, 0.5, { width: newValue + "%" });
                 }, true);

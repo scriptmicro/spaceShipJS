@@ -25,6 +25,8 @@
     "gulp-image": "^2.7.5",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.1",
-    "gulp-uglify": "^2.0.1"
+    "gulp-typescript": "^3.1.5",
+    "gulp-uglify": "^2.0.1",
+    "typescript": "^2.2.1"
   }
 }

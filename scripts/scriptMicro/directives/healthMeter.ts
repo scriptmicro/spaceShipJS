@@ -9,9 +9,9 @@
             template : '<div id="healthMeter"></div>',
             link: function(scope, element, attrs) {
 
-                var healthMeter = document.getElementById("healthMeter");
+                let healthMeter = document.getElementById("healthMeter");
 
-                scope.$watch("datasource.health", function(newValue, oldValue) {
+                scope.$watch("datasource.health", function(newValue:number, oldValue:number) {
                     console.log("health ::: " + newValue); 
                     TweenMax.to(healthMeter, 0.5, { width: newValue + "%" });
                 }, true);

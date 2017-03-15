@@ -20,8 +20,8 @@ function init() {
 
     TweenMax.set(gameHUD, { alpha: 0 });// could chnage this to set
 
-    var middleX = (container.clientWidth / 2) - (spaceShip.clientWidth / 2);
-    var middleY = (container.clientHeight / 2) - (spaceShip.clientHeight / 2);
+    var middleX:number = (container.clientWidth / 2) - (spaceShip.clientWidth / 2);
+    var middleY:number = (container.clientHeight / 2) - (spaceShip.clientHeight / 2);
 
     TweenMax.set(spaceShip, { x: (container.clientWidth / 2) - (spaceShip.clientWidth / 2), y: (container.clientHeight / 2) - (spaceShip.clientHeight / 2) });
     //TweenMax.set(spaceShip, { alpha: 0, rotation: 25, scaleX: 0.5, scaleY: 0.5, x: ((viewportHeight() / 2) - (spaceShip.clientHeight/2)), y: ((viewportWidth() / 2) - (spaceShip.clientWidth / 2)) });
@@ -55,9 +55,9 @@ function hangOutInMiddle(params) {
 
 
 function resize() {
-    var w = window.outerWidth;
-    var h = window.outerHeight;
-    var txt = "resize ::: width=" + w + ", height=" + h;
+    let w:number = window.outerWidth;
+    let h:number = window.outerHeight;
+    let txt:string = "resize ::: width=" + w + ", height=" + h;
 
     //console.log(txt);
 }
@@ -65,11 +65,11 @@ function resize() {
 
 
 
-function mouseMonitor(e) {
-    var x = e.pageX;
-    var y = e.pageY;
+function mouseMonitor(e) :number{
+    let x:number = e.pageX;
+    let y:number = e.pageY;
 
-    var spaceShipRect = spaceShip.getBoundingClientRect();
+    let spaceShipRect = spaceShip.getBoundingClientRect();
     //console.log(spaceShipRect.top, spaceShipRect.right, spaceShipRect.bottom, spaceShipRect.left);
 
     // TODO creat a utility JS file that has a find center of object function

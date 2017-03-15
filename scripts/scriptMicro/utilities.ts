@@ -1,11 +1,10 @@
 
-function viewportWidth() {
-    var viewportwidth;
+function viewportWidth():number {
+    let viewportwidth:number;
 
     if (typeof window.innerWidth != 'undefined') {
         viewportwidth = window.innerWidth;
     }
-
     else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) {
         viewportwidth = document.documentElement.clientWidth;
     }
@@ -15,13 +14,12 @@ function viewportWidth() {
     return viewportwidth;
 }
 
-function viewportHeight() {
-    var viewportheight;
+function viewportHeight():number {
+    let viewportheight:number;
 
     if (typeof window.innerWidth != 'undefined') {
         viewportheight = window.innerHeight;
     }
-
     else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) {
         viewportheight = document.documentElement.clientHeight;
     }
@@ -32,31 +30,28 @@ function viewportHeight() {
 }
 
 
-function findAngle(x1, y1, x2, y2)
-{
-    var radian = findRadian(x1, y1, x2, y2);
-    var angle = radian * 180 / Math.PI;
+function findAngle(x1:number, y1:number, x2:number, y2:number):number{
+    let radian:number = findRadian(x1, y1, x2, y2);
+    let angle:number = radian * 180 / Math.PI;
     //console.log("findAngle ::: " + angle);
     return angle;
 }
 
-function findHypotenuse(mc1x, mc1y, mc2x, mc2y)
-{
-    var xdiff = mc2x - mc1x;
-    var ydiff = mc2y - mc1y;
+function findHypotenuse(mc1x:number, mc1y:number, mc2x:number, mc2y:number):number{
+    let xdiff:number = mc2x - mc1x;
+    let ydiff:number = mc2y - mc1y;
     
-    var hypotenuse = Math.sqrt((xdiff*xdiff)+(ydiff*ydiff));
+    let hypotenuse:number = Math.sqrt((xdiff*xdiff)+(ydiff*ydiff));
     return hypotenuse;
 }
 
-function findRadian(x1, y1, x2, y2) {
-    var xdiff = x1 - x2;
-    var ydiff = y1 - y2;
-    var radian = Math.atan2(ydiff, xdiff);
+function findRadian(x1:number, y1:number, x2:number, y2:number):number {
+    let xdiff = x1 - x2;
+    let ydiff = y1 - y2;
+    let radian = Math.atan2(ydiff, xdiff);
     return radian;
 }
 
-function getRandomInt(highRange, lowRange)
-{
+function getRandomInt(highRange:number, lowRange:number):number{
     return Math.floor(Math.random() * (1+highRange-lowRange)) + lowRange;
 }

@@ -1,6 +1,36 @@
-function buildShape(newX, newY, newXSpeed, newYSpeed) {
 
-    var shape = [];
+class Shape {
+
+    x:number;
+    y:number;
+    health:number;
+    power:number;
+    friction:number;
+    damage:number;
+    xspeed:number;
+    yspeed:number;
+    rotation:number;
+    rotationAmount:number;
+    image:string;
+    score:number;
+
+    width:number;
+    height:number;
+
+    control = function (shapeWidth:number) {
+
+
+    };
+}
+
+
+
+
+
+
+function buildShape(newX:number, newY:number, newXSpeed:number, newYSpeed:number):Shape {
+
+    let shape:Shape = new Shape();
     //weapon.color = '#' + 0xFFFFFF; //+ (Math.random() * 0xFFFFFF << 0).toString(16);
     shape.x = newX;
     shape.y = newY;
@@ -53,9 +83,9 @@ function buildShape(newX, newY, newXSpeed, newYSpeed) {
 
 
 
-function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type) {//type = 1
+function buildBadGuy(newX:number, newY:number, newXSpeed:number, newYSpeed:number, type:number):Shape {//type = 1
 
-    var shape = [];
+    let shape:Shape = new Shape();
     //weapon.color = '#' + 0xFFFFFF; //+ (Math.random() * 0xFFFFFF << 0).toString(16);
     shape.x = newX;
     shape.y = newY;
@@ -137,9 +167,9 @@ function buildBadGuy(newX, newY, newXSpeed, newYSpeed, type) {//type = 1
 
 
 
-function buildBoom(newX, newY, newXSpeed, newYSpeed, type) {//type = 1
+function buildBoom(newX:number, newY:number, newXSpeed:number, newYSpeed:number, type:number):Shape {//type = 1
 
-    var shape = [];
+    let shape:Shape = new Shape();
     //weapon.color = '#' + 0xFFFFFF; //+ (Math.random() * 0xFFFFFF << 0).toString(16);
     shape.x = newX;
     shape.y = newY;

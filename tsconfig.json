@@ -1,0 +1,12 @@
+{
+    "files": [
+        "scripts/scriptMicro/*.ts",
+        "scripts/scriptMicro/directives/*.ts",
+        "scripts/scriptMicro/controllers/*.ts"
+
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}

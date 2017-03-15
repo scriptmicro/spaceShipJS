@@ -8,7 +8,7 @@
             },
             templateUrl: "templates/badGuy.html",
             link: function(scope, element, attrs) {
-                scope.$watch("datasource.health", function(newValue, oldValue) {
+                scope.$watch("datasource.health", function(newValue:number, oldValue:number) {
                         
                     if (newValue < 100){
                         //TweenMax.set(element, {backgroundColor:0xFF0000});

@@ -22,7 +22,7 @@
         }
 
         $scope.createBadGuys = function(){
-            for (i = 0; i < 3; i++) {
+            for (let i:number = 0; i < 3; i++) {
                 $scope.badGuysList.push(
                     buildBadGuy(
                         Math.random() * ($scope.stageWidth - 50), 
@@ -57,7 +57,7 @@
             console.log("endBTNHandler ::: " + $scope.badGuysList.length);
 
             if($scope.badGuysList.length > 0){
-                for (var i = $scope.badGuysList.length -1; i >= 0;  i--) {
+                for (let i:number = $scope.badGuysList.length -1; i >= 0;  i--) {
                     //$scope.badGuysList[i].health = 0;
                     applyDamageToBadGuy(i, 100);
                 }
@@ -68,7 +68,7 @@
             TweenMax.to(gameHUD, 0.5, { alpha: 0 });
 
             //well, this isnt very angularJSie
-            var startBTN = document.getElementById("startBTN");
+            let startBTN = document.getElementById("startBTN");
             TweenMax.to(startBTN, 0.5, { x: (container.clientWidth / 2) - (startBTN.clientWidth / 2), y: (container.clientHeight / 2) - (startBTN.clientHeight / 2), ease:  Back.easeOut});
             TweenMax.to(document.body, 1.5, { css: { backgroundColor: "#32383d" }, ease: Elastic.easeOut });
         }
@@ -83,8 +83,8 @@
 
         $scope.mouseClick = function (event) {
 
-            var x = $scope.mouseX = event.pageX;
-            var y = $scope.mouseY = event.pageY;
+            let x:number = $scope.mouseX = event.pageX;
+            let y:number = $scope.mouseY = event.pageY;
 
             $scope.spaceShip.angle = mouseMonitor(event);
 
@@ -99,11 +99,11 @@
 
             //TODO : log term : weapons manager ... weapon selected? weapons upgrades
 
-            var angle = findAngle($scope.mouseX, $scope.mouseY, $scope.spaceShip.x + ($scope.spaceShip.width / 2), $scope.spaceShip.y + ($scope.spaceShip.height / 2));
+            let angle:number = findAngle($scope.mouseX, $scope.mouseY, $scope.spaceShip.x + ($scope.spaceShip.width / 2), $scope.spaceShip.y + ($scope.spaceShip.height / 2));
 
             console.log("mouseClick ::: angle= " + angle);
 
-            var radians = angle * Math.PI / 180;
+            let radians:number = angle * Math.PI / 180;
 
             console.log("mouseClick ::: $scope.spaceShip.x= " + $scope.spaceShip.x);
             console.log("mouseClick ::: $scope.spaceShip.y= " + $scope.spaceShip.y);
@@ -111,10 +111,10 @@
 
             //plus 50 for the center of the spaceship
             //times 60 for the distance away from center... i guess
-            var x = ($scope.spaceShip.x + ($scope.spaceShip.width / 2)) + Math.cos(radians) * ($scope.spaceShip.width / 2);
-            var y = ($scope.spaceShip.y + ($scope.spaceShip.height / 2)) + Math.sin(radians) * ($scope.spaceShip.height / 2);
+            let x:number = ($scope.spaceShip.x + ($scope.spaceShip.width / 2)) + Math.cos(radians) * ($scope.spaceShip.width / 2);
+            let y:number = ($scope.spaceShip.y + ($scope.spaceShip.height / 2)) + Math.sin(radians) * ($scope.spaceShip.height / 2);
 
-            var currentWeapon = buildShape(x, y, Math.cos(radians), Math.sin(radians));
+            let currentWeapon = buildShape(x, y, Math.cos(radians), Math.sin(radians));
 
             $scope.weaponsfired.push(currentWeapon);
 
@@ -135,7 +135,7 @@
 
         $scope.keyup = function ($event) {
 
-            var i = $scope.keys.indexOf($event.keyCode);
+            let i:number = $scope.keys.indexOf($event.keyCode);
 
             if (i > -1) {
                 $scope.keys.splice(i, 1);
@@ -143,14 +143,14 @@
             console.log("keys ::: " + $scope.keys);
         }
 
-        function applyDamageToSpaceShip(amount) {
+        function applyDamageToSpaceShip(amount:number) {
 
             if ($scope.spaceShip.shield > 0) {
                 //TODO : play shieled animation tint the ship blue and back to white
                 if ($scope.spaceShip.shield - amount > 0) {
                     $scope.spaceShip.shield -= amount;
                 } else {
-                    var amountToCarryOverToHealthDamage = amount - $scope.spaceShip.shield;
+                    let amountToCarryOverToHealthDamage:number = amount - $scope.spaceShip.shield;
                     $scope.spaceShip.shield = 0;
 
                     $scope.spaceShip.health -= amountToCarryOverToHealthDamage;
@@ -170,8 +170,8 @@
 
                 if($scope.spaceShip.isAlive == true){
                     $scope.spaceShip.isAlive = false;
-                    var middleX = (container.clientWidth / 2) - (spaceShip.clientWidth / 2);
-                    var middleY = (container.clientHeight / 2) - (spaceShip.clientHeight / 2);
+                    let middleX:number = (container.clientWidth / 2) - (spaceShip.clientWidth / 2);
+                    let middleY:number = (container.clientHeight / 2) - (spaceShip.clientHeight / 2);
 
                     TweenMax.set(spaceShip, { visibility: "hidden" });
                     $scope.keys = [];
@@ -181,7 +181,7 @@
                     $scope.spaceShip.angle = 0;
 
                     //here I want o make a super nova circle animation that expands and fads (ALPHA OUT) fast at the end. I used to has a frame tween in flash back in the day
-                    for (var i = 0; i < 20; i++){
+                    for (let i:number = 0; i < 20; i++){
                        $scope.boomList.push(buildBoom($scope.spaceShip.x + getRandomInt(2,-2), $scope.spaceShip.y + getRandomInt(2,-2), $scope.spaceShip.xspeed += getRandomInt(7,-7), $scope.spaceShip.yspeed += getRandomInt(7,-7), 2));
                     }
 
@@ -199,12 +199,12 @@
         }
 
 
-        function blowUpAround(objectBlowingUp, distance){
+        function blowUpAround(objectBlowingUp, distance:number){
 
             //TODO : add a no/low damage shock wave (distance+50) that just moves the badguys in the opposite direction as the ship.
 
-            for (var i = $scope.badGuysList.length -1; i >= 0;  i--) {
-                var hypotinuse = findHypotenuse($scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].height/2) , objectBlowingUp.x + (objectBlowingUp.width/2), objectBlowingUp.y + (objectBlowingUp.height/2));
+            for (let i:number = $scope.badGuysList.length -1; i >= 0;  i--) {
+                let hypotinuse:number = findHypotenuse($scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].height/2) , objectBlowingUp.x + (objectBlowingUp.width/2), objectBlowingUp.y + (objectBlowingUp.height/2));
                 if (Math.abs(hypotinuse) < distance)
                 {
                     console.log("blowUpAround ::: " + i + " hypotinuse ::: " + hypotinuse);
@@ -225,7 +225,7 @@
             }
         }
 
-        function applyDamageToBadGuy(whichGuy, damageAmount){
+        function applyDamageToBadGuy(whichGuy, damageAmount:number){
             console.log("gamapplyDamageToBadGuyeLoop damageAmount::: " + damageAmount);
             console.log("applyDamageToBadGuy whichGuy::: " + whichGuy);
             
@@ -237,11 +237,11 @@
                     $scope.score += $scope.badGuysList[whichGuy].score;
                 }
 
-                var x = $scope.badGuysList[whichGuy].x;
-                var y = $scope.badGuysList[whichGuy].y;
+                let x:number = $scope.badGuysList[whichGuy].x;
+                let y:number = $scope.badGuysList[whichGuy].y;
 
-                var xspeed = $scope.badGuysList[whichGuy].xspeed;
-                var yspeed = $scope.badGuysList[whichGuy].yspeed;
+                let xspeed:number = $scope.badGuysList[whichGuy].xspeed;
+                let yspeed:number = $scope.badGuysList[whichGuy].yspeed;
 
                 $scope.badGuysList.splice(whichGuy, 1);
                 //replace bad guy with boom1 and 2 or 3
@@ -249,7 +249,7 @@
 
                 $scope.boomList.push(buildBoom(x + getRandomInt(2,-2), y + getRandomInt(2,-2), xspeed, yspeed, 1));
 
-                for (var i = 0; i < 6; i++){
+                for (let i:number = 0; i < 6; i++){
                    $scope.boomList.push(buildBoom(x + getRandomInt(2,-2), y + getRandomInt(2,-2), xspeed *= getRandomInt(1,-1), yspeed *= getRandomInt(1,-1), 2));
                 }
 
@@ -368,9 +368,9 @@
         function handleSpaceShipWeapons(){
 
             //handle space ship weapons
-            for (var i = $scope.weaponsfired.length-1; i >= 0; i--) {
+            for (let i:number = $scope.weaponsfired.length-1; i >= 0; i--) {
 
-                var currentWeapon = $scope.weaponsfired[i]
+                let currentWeapon = $scope.weaponsfired[i];
 
                 $scope.weaponsfired[i].x += $scope.weaponsfired[i].xspeed;
                 $scope.weaponsfired[i].y += $scope.weaponsfired[i].yspeed;
@@ -408,7 +408,7 @@
 
 
         function loopBadGuysAndSpaceShip(){
-            for (var i = $scope.badGuysList.length -1; i >= 0;  i--) {
+            for (let i:number = $scope.badGuysList.length -1; i >= 0;  i--) {
 
                 if($scope.badGuysList[i].xspeed > 1 )
                 {
@@ -423,8 +423,8 @@
 
                 if($scope.spaceShip.isAlive == true){
                     //Check space ship against each bad guy
-                    var hypotenuse = findHypotenuse($scope.spaceShip.x+50, $scope.spaceShip.y+50, $scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].height/2));
-                    var radiusCombined = 50 + ($scope.badGuysList[i].width/2); //$scope.spaceShip.width/2 + $scope.badGuysList[i].width/2;
+                    let hypotenuse:number = findHypotenuse($scope.spaceShip.x+50, $scope.spaceShip.y+50, $scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].height/2));
+                    let radiusCombined:number = 50 + ($scope.badGuysList[i].width/2); //$scope.spaceShip.width/2 + $scope.badGuysList[i].width/2;
                     if(hypotenuse <= radiusCombined){
 
                         $scope.badGuysList[i].xspeed += $scope.spaceShip.xspeed;
@@ -443,17 +443,17 @@
 
 
         function loopBadGuysAndWeaponsFired(){
-            for (var wf = $scope.weaponsfired.length-1; wf >=0; wf--) {
+            for (let wf:number = $scope.weaponsfired.length-1; wf >=0; wf--) {
                 //console.log("weaponsfired ::: " + wf + " - " +$scope.weaponsfired.length);
-                for (var i = $scope.badGuysList.length-1; i >=0; i--) {
+                for (let i:number = $scope.badGuysList.length-1; i >=0; i--) {
                 //console.log("badGuysList ::: " + i + " - " +$scope.badGuysList.length);
 
                     if($scope.weaponsfired[wf] == undefined ) {
                         console.log("$scope.weaponsfired[wf] == undefined " + wf);
                     }else{
 
-                        var hypotenuse = findHypotenuse($scope.weaponsfired[wf].x+2.5, $scope.weaponsfired[wf].y+2.5, $scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].width/2));
-                        var radiusCombined = 2.5 + ($scope.badGuysList[i].width/2); //$scope.spaceShip.width/2 + $scope.badGuysList[i].width/2;
+                        let hypotenuse:number = findHypotenuse($scope.weaponsfired[wf].x+2.5, $scope.weaponsfired[wf].y+2.5, $scope.badGuysList[i].x+($scope.badGuysList[i].width/2), $scope.badGuysList[i].y+($scope.badGuysList[i].width/2));
+                        let radiusCombined:number = 2.5 + ($scope.badGuysList[i].width/2); //$scope.spaceShip.width/2 + $scope.badGuysList[i].width/2;
                         if(hypotenuse <= radiusCombined){
 
                             $scope.badGuysList[i].xspeed += $scope.weaponsfired[wf].xspeed;
@@ -462,7 +462,7 @@
                             applyDamageToBadGuy(i, $scope.weaponsfired[wf].damage);
                             
 
-                            for (var i = 0; i < getRandomInt(3, 1); i++){
+                            for (let i:number = 0; i < getRandomInt(3, 1); i++){
                                $scope.boomList.push(buildBoom($scope.weaponsfired[wf].x + getRandomInt(2,-2), $scope.weaponsfired[wf].y + getRandomInt(2,-2), (($scope.weaponsfired[wf].xspeed + getRandomInt(2,-2))*-1)/3, (($scope.weaponsfired[wf].yspeed + getRandomInt(2,-2))*-1)/3, 2));
                             }
                             $scope.weaponsfired.splice(wf, 1);
@@ -477,7 +477,7 @@
 
         function loopBoomList(){
 
-            for (var i = 0; i < $scope.boomList.length; i++) {
+            for (let i:number = 0; i < $scope.boomList.length; i++) {
 
                 $scope.boomList[i].xspeed *= 0.89;
                 $scope.boomList[i].yspeed *= 0.89;
